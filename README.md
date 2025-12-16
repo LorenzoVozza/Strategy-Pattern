@@ -80,20 +80,21 @@ class CustomerSupport:
         self.tickets = []                 
         self.processing_strategy = processing_strategy  
 
-   
+# creates and stores new ticket   
     def create_ticket(self, customer, issue):
         self.tickets.append(SupportTicket(customer, issue))
 
+# processes tickets using the strategy
     def process_tickets(self):
         
         ticket_list = self.processing_strategy.create_ordering(self.tickets)
 
-        
+# handles empty list case
         if len(ticket_list) == 0:
             print("There are no tickets to process. Well done!")
             return
 
-       
+# processes each ticket in order       
         for ticket in ticket_list:
             self.process_ticket(ticket)
 
@@ -105,11 +106,11 @@ class CustomerSupport:
         print(f"Issue: {ticket.issue}")
         print("==================================")
 
-
+# creates the app with a RANDOM order strategy
 
 app = CustomerSupport(RandomOrderingStrategy())
 
-#example tickets
+# example tickets
 app.create_ticket("Cat", "Why am I barking!")
 app.create_ticket("Dog", "Why am I meowing!")
 app.create_ticket("Cow", "MOOOOO!")
