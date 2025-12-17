@@ -1,3 +1,4 @@
+# Lorenzo Vozza
 # Strategy-Pattern
 Description 
 
